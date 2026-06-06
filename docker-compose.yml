@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # FastAPI application
+  app:
+    build: .
+    container_name: autostream-agent
+    ports:
+      - "8000:8000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
+      - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/autostream
+      - ENVIRONMENT=production
+    depends_on:
+      - db
+    volumes:
+      - ./:/app
+    networks:
+      - autostream-network
+
+  # PostgreSQL Database
+  db:
+    image: postgres:15-alpine
+    container_name: autostream-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=autostream
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - autostream-network
+
+volumes:
+  postgres_data:
+
+networks:
+  autostream-network:
+    driver: bridge
