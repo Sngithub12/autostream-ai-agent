@@ -1,0 +1,38 @@
+{
+  "pricing": {
+    "starter": {
+      "name": "Starter Plan",
+      "price": "$29/month",
+      "features": [
+        "Up to 10 videos/month",
+        "Basic AI editing",
+        "Email support"
+      ]
+    },
+    "professional": {
+      "name": "Professional Plan",
+      "price": "$79/month",
+      "features": [
+        "Up to 100 videos/month",
+        "Advanced AI features",
+        "Priority support",
+        "Custom branding"
+      ]
+    },
+    "enterprise": {
+      "name": "Enterprise Plan",
+      "price": "Custom pricing",
+      "features": [
+        "Unlimited videos",
+        "Full API access",
+        "Dedicated support",
+        "White-label solution"
+      ]
+    }
+  },
+  "policies": {
+    "refund": "30-day money-back guarantee on all plans",
+    "support": "Email support available 24/7 for all subscribers",
+    "cancellation": "Cancel anytime, no long-term contracts"
+  }
+}
